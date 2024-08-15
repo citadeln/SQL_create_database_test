@@ -4,13 +4,13 @@ CREATE TABLE PROG_TEST_BLNC(
 );
 
 CREATE TABLE PROG_TEST_ACCNT(  
-  ACCNT_CODE numeric not null default 10,
+  ACCNT_CODE bigint not null default 10,
   ACCNT_ACNT varchar(30) not null,
   ACCNT_PPL_CODE bigint primary key,
   ACCNT_CRNC varchar(3) not null,
   ACCNT_NAME varchar(2000) not null,
-  constraint uk_PROG_TEST_ACCNT unique (ACCNT_CODE, ACCNT_ACNT, ACCNT_CRNC, ACCNT_NAME),
-  constraint fk_PROG_TEST_ACCNT_BLNC_ACCNT_CODE foreign key (ACCNT_CODE) references PROG_TEST_BLNC(BLNC_ACCNT_CODE),
+  --constraint uk_PROG_TEST_ACCNT unique (ACCNT_CODE, ACCNT_ACNT, ACCNT_CRNC, ACCNT_NAME),
+  constraint fk_PROG_TEST_ACCNT_BLNC_ACCNT_CODE foreign key (ACCNT_CODE) references PROG_TEST_BLNC(BLNC_ACCNT_CODE)
 );
 
 create table PROG_TEST_DOCS(
@@ -36,14 +36,15 @@ create table PROG_TEST_ADDRESS(
 );
 
 create table PROG_TEST_PEOPLE( 
-  PPL_CODE numeric not null,
+  PPL_CODE bigint not null,
   PPL_NAME varchar(2000) not null,
-  PPL_PPL_CODE bigint primary key
-  constraint uk_PROG_TEST_PEOPLE unique (PPL_CODE, PPL_NAME, PPL_PPL_CODE),
-  constraint fk_PROG_TEST_PEOPLE foreign key  (PPL_CODE) references PROG_TEST_DOCS(DOC_PPL_CODE),
-  constraint fk_PROG_TEST_PEOPLE foreign key  (PPL_CODE) references PROG_TEST_ADDRESS(ADDR_PPL_CODE),
-  constraint fk_PROG_TEST_PEOPLE foreign key  (PPL_CODE) references PROG_TEST_ACCNT(ACCNT_PPL_CODE)
+  PPL_PPL_CODE bigint primary key,
+  --constraint uk_PROG_TEST_PEOPLE unique (PPL_CODE, PPL_NAME, PPL_PPL_CODE),
+  constraint fk_PPL_PPL_CODE_DOCS foreign key (PPL_CODE) references PROG_TEST_DOCS(DOC_PPL_CODE),
+  constraint fk_PPL_PPL_CODE_ADDRESS foreign key (PPL_CODE) references PROG_TEST_ADDRESS(ADDR_PPL_CODE),
+  constraint fk_PPL_PPL_CODE_ACCNT foreign key (PPL_PPL_CODE) references PROG_TEST_ACCNT(ACCNT_PPL_CODE)
 );
+
 
 insert into PROG_TEST_PEOPLE values (1, 'Anna', 166);
 insert into PROG_TEST_PEOPLE values (2, 'Andrey', 211);
