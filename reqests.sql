@@ -5,7 +5,6 @@ LEFT JOIN PROG_TEST_ACCNT A ON P.PPL_PPL_CODE = A.ACCNT_PPL_CODE
 LEFT JOIN PROG_TEST_BLNC B ON A.ACCNT_CODE = B.BLNC_ACCNT_CODE
 GROUP BY P.PPL_NAME
 ORDER BY P.PPL_NAME;
-
 /*
 Client_Name | Total_Money 
             |
@@ -16,9 +15,12 @@ Client_Name | Total_Money
 -- 2. Список клиентов без паспорта?
 SELECT PPL_NAME
 FROM PROG_TEST_PEOPLE
-WHERE PPL_CODE NOT IN (SELECT PPL_CODE FROM PROG_TEST_DOCS);
+WHERE PPL_CODE NOT IN (SELECT DOC_PPL_CODE FROM PROG_TEST_DOCS);
+/*
+PPL_NAME |
+*/
 
-
+/*надо доработать
 
 -- 3. Сколько денег у поручителя человека с конкретным номером паспортом? (сделать номер паспорта бинд-переменной)
 DECLARE @PassportNumber varchar(30);
@@ -45,3 +47,5 @@ WHERE ADDR_PPL_CODE = (
         )
     )
 );
+
+*/

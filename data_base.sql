@@ -23,8 +23,8 @@ create table PROG_TEST_DOCS(
 
 insert into PROG_TEST_DOCS values (1, '1f', 'rrr', 'd', '2021-08-01');
 insert into PROG_TEST_DOCS values (2, '2f', 'rrr', 'g', '2024-03-01');
-insert into PROG_TEST_DOCS values (3, '2f', 'ttt', 'h', '2023-01-02');
-insert into PROG_TEST_DOCS values (4, '3f', 'hhh', 'r','2022-01-03');
+insert into PROG_TEST_DOCS values (3, '2f', 'ttt', '0', '2023-01-02');
+insert into PROG_TEST_DOCS values (5, '3f', 'hhh', 'r','2022-01-03');
 
 
 create table PROG_TEST_ADDRESS(
