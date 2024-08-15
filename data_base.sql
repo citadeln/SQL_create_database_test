@@ -14,20 +14,12 @@ CREATE TABLE PROG_TEST_ACCNT(
 );
 
 create table PROG_TEST.DOCS(
-  DOC_PPL_CODE bigint primary key ,
-  name varchar not null ,
-  rating numeric not null default 0
+  DOC_PPL_CODE bigint primary key,
+  DOC_NUM varchar not null,
+  DOC_SERIES varchar not null,
+  DOC_TYPE varchar not null,
+  DOC_DATE date not null default current_date
 );
-
-alter table pizzeria add constraint ch_rating check ( rating between 0 and 5);
-
-insert into pizzeria values (1,'Pizza Hut', 4.6);
-insert into pizzeria values (2,'Dominos', 4.3);
-insert into pizzeria values (3,'DoDo Pizza', 3.2);
-insert into pizzeria values (4,'Papa Johns', 4.9);
-insert into pizzeria values (5,'Best Pizza', 2.3);
-insert into pizzeria values (6,'DinoPizza', 4.2);
-
 
 create table PROG_TEST.PEOPLE
 ( PL_CODE bigint primary key ,
