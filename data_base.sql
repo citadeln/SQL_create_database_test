@@ -21,6 +21,12 @@ create table PROG_TEST_DOCS(
   DOC_DATE date not null default current_date
 );
 
+insert into PROG_TEST_DOCS values (1, '1f', 'rrr', 'd', '2021-08-01');
+insert into PROG_TEST_DOCS values (2, '2f', 'rrr', 'g', '2024-03-01');
+insert into PROG_TEST_DOCS values (3, '2f', 'ttt', 'h', '2023-01-02');
+insert into PROG_TEST_DOCS values (4, '3f', 'hhh', 'r','2022-01-03');
+
+
 create table PROG_TEST_ADDRESS(
   ADDR_PPL_CODE bigint primary key,
   ADDR_CITY varchar not null,
