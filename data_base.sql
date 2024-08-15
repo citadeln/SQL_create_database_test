@@ -51,4 +51,4 @@ insert into PROG_TEST_PEOPLE values (2, 'Andrey', 211);
 insert into PROG_TEST_PEOPLE values (3, 'Kate', 333);
 insert into PROG_TEST_PEOPLE values (4, 'Denis', 131);
 
-SELECT * FROM PROG_TEST_DOCS;
+--SELECT * FROM PROG_TEST_DOCS;
