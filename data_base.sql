@@ -9,7 +9,7 @@ CREATE TABLE PROG_TEST_ACCNT(
   ACCNT_PPL_CODE bigint primary key,
   ACCNT_CRNC varchar(3) not null,
   ACCNT_NAME varchar(2000) not null,
-  constraint uk_PROG_TEST_ACCNT unique (BLNC_ACCNT_CODE, BLNC_OSTATOK),
+  constraint uk_PROG_TEST_ACCNT unique (ACCNT_CODE, ACCNT_ACNT, ACCNT_CRNC, ACCNT_NAME),
   constraint fk_PROG_TEST_ACCNT_BLNC_ACCNT_CODE foreign key (ACCNT_CODE) references PROG_TEST_BLNC(BLNC_ACCNT_CODE),
 );
 
@@ -18,7 +18,7 @@ create table PROG_TEST_DOCS(
   DOC_NUM varchar(30) not null,
   DOC_SERIES varchar(30) not null,
   DOC_TYPE varchar(30) not null,
-  DOC_DATE date not null default current_date
+  DOC_DATE date not null
 );
 
 insert into PROG_TEST_DOCS values (1, '1f', 'rrr', 'd', '2021-08-01');
@@ -39,13 +39,15 @@ create table PROG_TEST_PEOPLE(
   PPL_CODE numeric not null,
   PPL_NAME varchar(2000) not null,
   PPL_PPL_CODE bigint primary key
-  constraint uk_PROG_TEST.PEOPLE unique (PPL_CODE, PPL_NAME, PPL_PPL_CODE),
-  constraint fk_PROG_TEST.PEOPLE foreign key  (PPL_CODE) references PROG_TEST_DOCS(DOC_PPL_CODE),
-  constraint fk_PROG_TEST.PEOPLE foreign key  (PPL_CODE) references PROG_TEST_ADDRESS(ADDR_PPL_CODE),
-  constraint fk_PROG_TEST.PEOPLE foreign key  (PPL_CODE) references PROG_TEST_ACCNT(ACCNT_PPL_CODE)
+  constraint uk_PROG_TEST_PEOPLE unique (PPL_CODE, PPL_NAME, PPL_PPL_CODE),
+  constraint fk_PROG_TEST_PEOPLE foreign key  (PPL_CODE) references PROG_TEST_DOCS(DOC_PPL_CODE),
+  constraint fk_PROG_TEST_PEOPLE foreign key  (PPL_CODE) references PROG_TEST_ADDRESS(ADDR_PPL_CODE),
+  constraint fk_PROG_TEST_PEOPLE foreign key  (PPL_CODE) references PROG_TEST_ACCNT(ACCNT_PPL_CODE)
 );
 
-insert into PROG_TEST.PEOPLE values (1, 'Anna', 166);
-insert into PROG_TEST.PEOPLE values (2, 'Andrey', 211);
-insert into PROG_TEST.PEOPLE values (3, 'Kate', 333);
-insert into PROG_TEST.PEOPLE values (4, 'Denis', 131);
+insert into PROG_TEST_PEOPLE values (1, 'Anna', 166);
+insert into PROG_TEST_PEOPLE values (2, 'Andrey', 211);
+insert into PROG_TEST_PEOPLE values (3, 'Kate', 333);
+insert into PROG_TEST_PEOPLE values (4, 'Denis', 131);
+
+SELECT * FROM PROG_TEST_DOCS;
