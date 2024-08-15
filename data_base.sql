@@ -38,7 +38,7 @@ create table PROG_TEST.PEOPLE(
   constraint fk_PROG_TEST.PEOPLE foreign key  (PPL_CODE) references PROG_TEST_ADDRESS(ADDR_PPL_CODE)
 );
 
-insert into person values (1, 'Anna', 16);
-insert into person values (2, 'Andrey', 21);
-insert into person values (3, 'Kate', 33);
-insert into person values (4, 'Denis', 13);
+insert into PROG_TEST.PEOPLE values (1, 'Anna', 166);
+insert into PROG_TEST.PEOPLE values (2, 'Andrey', 211);
+insert into PROG_TEST.PEOPLE values (3, 'Kate', 333);
+insert into PROG_TEST.PEOPLE values (4, 'Denis', 131);
